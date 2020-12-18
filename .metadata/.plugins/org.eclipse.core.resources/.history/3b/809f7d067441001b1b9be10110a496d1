@@ -1,0 +1,19 @@
+package com.revature.models;
+
+import javax.persistence.Entity;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data @AllArgsConstructor @NoArgsConstructor
+
+@Entity
+public class Post {
+	private int postId;
+	private int userId;
+	private String imageUrl;
+	private String caption;
+	private int like;
+
+}
