@@ -1,0 +1,8 @@
+{
+  "name": "SpringBook",
+  "dependencies": {
+    "@angular/core": "^11.0.5",
+    "@angular/forms": "^11.0.5",
+    "angular": "^1.8.2"
+  }
+}
