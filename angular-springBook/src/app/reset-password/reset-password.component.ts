@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Inject } from '@angular/core';
 
 @Component({
   selector: 'app-reset-password',
@@ -7,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResetPasswordComponent implements OnInit {
 
-  constructor(email: string) {
-    email = "user@example.com";
+  constructor(/* @Inject('email') email: string */) {
+    /* email = "user@example.com"; */
   }
 
   ngOnInit(): void {

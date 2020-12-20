@@ -10,11 +10,11 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     AppComponent,
     UpdateProfileComponent,
-    ResetPasswordComponent,
-    HttpClientModule
+    ResetPasswordComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
