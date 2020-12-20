@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

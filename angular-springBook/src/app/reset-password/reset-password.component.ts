@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Inject } from '@angular/core';
 
 @Component({
@@ -8,8 +8,11 @@ import { Inject } from '@angular/core';
 })
 export class ResetPasswordComponent implements OnInit {
 
-  constructor(/* @Inject('email') email: string */) {
-    /* email = "user@example.com"; */
+  @Input() email:string;
+  @Output() emailChange = new EventEmitter<string>();
+
+  constructor() {
+    this.email = "user@example.com";
   }
 
   ngOnInit(): void {
