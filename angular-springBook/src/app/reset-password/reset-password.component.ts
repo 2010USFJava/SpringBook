@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResetPasswordComponent implements OnInit {
 
-  constructor() { }
+  constructor(email: string) {
+    email = "user@example.com";
+  }
 
   ngOnInit(): void {
+  }
+
+  sendResetEmail(email: string): void {
+    
   }
 
 }
