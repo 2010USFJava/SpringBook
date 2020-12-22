@@ -11,22 +11,16 @@ import com.revature.models.Users;
 import com.revature.services.PostService;
 import com.revature.services.UsersService;
 
+@CrossOrigin(origins ="http://localhost:4102")
 @RestController
 @RequestMapping("/springbook")
 public class MasterController {
-	
+	@Autowired
 	private UsersService uService;
+	@Autowired
 	private PostService pService;
 	
-	@Autowired
-	public MasterController(UsersService uService, PostService pService) {
-		
-		this.uService=uService;
-		this.pService=pService;
-	}
-
 	@PostMapping("/registeruser")// in angular call this when user submit the form
-	@CrossOrigin(origins ="http://localhost:59900")
 	public Users registerUser(@RequestBody Users users) throws Exception {
 		
 		String tempEmail = users.getEmail();
@@ -45,7 +39,7 @@ public class MasterController {
 	}
 	
 	@PostMapping("/login")
-	@CrossOrigin(origins ="http://localhost:59900")
+	
 	public Users loginUser(@RequestBody Users users) throws Exception {
 		
 		String tempEmail =users.getEmail();
