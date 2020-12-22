@@ -12,8 +12,10 @@ import { SearchResultsComponent } from './search-results/search-results.componen
 import { CreateNewPostComponent } from './create-new-post/create-new-post.component';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { PostsListComponent } from './posts-list/posts-list.component';
+import { PostDetailsComponent } from './post-details/post-details.component';
+import { ProfileComponent } from './profile/profile.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 
@@ -22,7 +24,15 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     AppComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    PostsListComponent,
+    PostDetailsComponent,
+    ProfileComponent,
+    NavbarComponent,
+    SearchBarComponent,
+    ResetPasswordComponent,
+    CreateNewPostComponent,
+    UpdateProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -34,11 +44,6 @@ import { FormsModule } from '@angular/forms';
     CreateNewPostComponent,
     UpdateProfileComponent,
     ResetPasswordComponent
-  ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
