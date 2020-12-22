@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, Inject } from '@angular/core';
+import { Component, OnInit, Output, Inject, Input, EventEmitter } from '@angular/core';
 import { Employee } from 'src/app/employee';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
@@ -12,17 +12,20 @@ import { DOCUMENT } from '@angular/common';
 })
 export class UpdateProfileComponent implements OnInit {
 
-  constructor(/* employee: Employee, private http: HttpClient, @Inject(DOCUMENT) private _document: Document */) {
-    /* employee = new Employee(); */
+  @Input() employee: Employee;
+  @Output() employeeChange = new EventEmitter<Employee>();
+
+  constructor(private http: HttpClient, @Inject(DOCUMENT) private _document: Document) {
+    this.employee = new Employee();
   }
 
   ngOnInit(): void {
   }
 
   updateProfile(employee: Employee): void {
-    /* JSONemployee: JSON.stringify(employee);
+    JSONemployee: JSON.stringify(employee);
     this.http.post<any>('/placeholder', {});
-    this._document.defaultView.location.reload(); */
+    this._document.defaultView.location.reload();
   }
 
   getPictureFile(): void {

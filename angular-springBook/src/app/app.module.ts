@@ -13,6 +13,7 @@ import { CreateNewPostComponent } from './create-new-post/create-new-post.compon
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -36,8 +37,8 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
-
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
