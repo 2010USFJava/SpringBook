@@ -9,12 +9,15 @@ import { CreatePostService } from '../create-post.service';
   styleUrls: ['./posts-list.component.css']
 })
 export class PostsListComponent implements OnInit {
-  //posts: Post[];
-  constructor() {private postService: CreatePostService}
+  posts: Post[];
+  constructor(private postService: CreatePostService) { }
 
   ngOnInit(): void {
-    
+    this.getPosts();
+  }
 
+  getPosts(): void {
+    this.postService.getAllPosts().subscribe(posts => this.posts =  posts);
   }
 
 }
