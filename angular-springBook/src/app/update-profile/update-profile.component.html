@@ -5,11 +5,11 @@
     <input type="file" id="pictureFile" class="hidden" (change)="updatePicture($event.target.files)">
 </div>
 <div>
-    <input id="firstName" [(ngModel)="employee.firstName"]/>
+    <input id="firstName" [(ngModel)]="employee.firstName"/>
     <br>
-    <input id="lastName" [(ngModel)="employee.lastName"]/>
+    <input id="lastName" [(ngModel)]="employee.lastName"/>
     <br>
-    <input id="email" [(ngModel)="employee.email"]/>
+    <input id="email" [(ngModel)]="employee.email"/>
     <br>
 </div>
 <input id="submit" type="submit" (click)="this.updateProfile(employee)" value="Submit"/>

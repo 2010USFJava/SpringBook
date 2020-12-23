@@ -38,12 +38,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule,
-    SearchBarComponent,
-    SearchResultsComponent,
-    CreateNewPostComponent,
-    UpdateProfileComponent,
-    ResetPasswordComponent
+    AppRoutingModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
