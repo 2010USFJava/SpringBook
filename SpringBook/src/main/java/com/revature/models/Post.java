@@ -23,7 +23,7 @@ public class Post {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int postId;
 	@ManyToOne(fetch = FetchType.EAGER, cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
-	private int userId;
+	private Users users;
 	private String imageUrl;
 	private String caption;
 	private int like;
