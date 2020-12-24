@@ -42,15 +42,15 @@ class SpringBookApplicationTests {
 		assertEquals(user, uServ.getUserByEmail(email));
 	}
 	
-	@Test
-	public void getUserByEmailAndPasswordTest() {
-		String email = "kimS@mail.com";
-		String pass = "pass";
-		Users user = new Users(1,"Kim","Smith","kimS@mail.com","pass","img.com",new ArrayList<Post>());
-		when(uRepo.findByEmailAndPassword(email, pass)).thenReturn(user);
-		assertEquals(user, uServ.getUserByEmailAndPassword(email, pass));
-	}
-	
+//	@Test
+//	public void getUserByEmailAndPasswordTest() {
+//		String email = "kimS@mail.com";
+//		String pass = "pass";
+//		Users user = new Users(1,"Kim","Smith","kimS@mail.com","pass","img.com",new ArrayList<Post>());
+//		when(uRepo.findByEmailAndPassword(email, pass)).thenReturn(user);
+//		assertEquals(user, uServ.getUserByEmailAndPassword(email, pass));
+//	}
+//	
 	
 
 }

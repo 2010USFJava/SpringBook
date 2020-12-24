@@ -14,7 +14,7 @@ export class SearchBarComponent implements OnInit {
   constructor(private usersService: UsersService) { }
 
   ngOnInit() {
-    this.getUsersByFirstName(firstName: String) ;
+    //this.getUsersByFirstName(firstName: String) ;
   }
 
   getUsersByFirstName(firstName: String): void {

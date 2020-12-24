@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { fromEventPattern } from 'rxjs';
 import { Post } from '../post';
-import { CreatePostService } from '../create-post.service';
+import { PostService } from '../post.service';
 
 @Component({
   selector: 'app-posts-list',
@@ -10,7 +10,7 @@ import { CreatePostService } from '../create-post.service';
 })
 export class PostsListComponent implements OnInit {
   posts: Post[];
-  constructor(private postService: CreatePostService) { }
+  constructor(private postService: PostService) { }
 
   ngOnInit(): void {
     this.getPosts();

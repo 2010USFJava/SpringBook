@@ -31,9 +31,9 @@ public class UsersService {
 		return uRepo.findByEmail(email);	
 	}
 
-	public Users getUserByEmailAndPassword(String email, String passWord) {	
-		return uRepo.findByEmailAndPassword(email, passWord);
-	}
+//	public Users getUserByEmailAndPassWord(String email, String passWord) {	
+//		return uRepo.findByEmailAndPassWord(email, passWord);
+//	}
 	
 	public List<Users> getUsersByFirstName(String firstName) {
 		return (List<Users>)uRepo.findByFirstName(firstName);
