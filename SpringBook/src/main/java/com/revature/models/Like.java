@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 @Data @AllArgsConstructor @NoArgsConstructor
 @Entity
 public class Like {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private int likeId;
