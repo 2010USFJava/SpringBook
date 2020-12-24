@@ -1,7 +1,0 @@
-package com.revature.models;
-
-public class Like {
-	private int userId;
-	private int postId;
-
-}

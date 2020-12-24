@@ -54,6 +54,18 @@ public class MasterController {
 		}
 		return userObj;
 	}
+	
+	@PostMapping("/updateprofile")
+	public Users updateProfile(@RequestBody Users users) {
+		Users updatedUsers = null;
+		if(users.getFirstName() != null && users.getLastName() != null) {
+			updatedUsers = uService.updateProfile(users);
+		}
+		if(updatedUsers == null) {
+			System.out.println("User does not exist.");
+		}
+		return updatedUsers;
+	}
 
 }
 

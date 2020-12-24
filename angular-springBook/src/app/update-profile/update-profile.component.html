@@ -1,19 +1,29 @@
-<h2>Update Profile</h2>
-<div>
-    <img src="https://placeholder.com" (click)="this.getPictureFile()"/>
-    <br>
-    <input type="file" id="pictureFile" class="hidden" (change)="updatePicture($event.target.files)">
-</div>
-<div>
-    <input id="firstName" [(ngModel)]="user.firstName"/>
-    <br>
-    <input id="lastName" [(ngModel)]="user.lastName"/>
-    <br>
-    <input id="email" [(ngModel)]="user.email"/>
-    <br>
-</div>
-<input id="submit" type="submit" (click)="this.updateProfile(user)" value="Submit"/>
+<div class="container">
+    <h2>Update Profile</h2>
+    <div>
+        <img src="https://placeholder.com" (click)="this.getPictureFile()" />
+        <br>
+        <input type="file" id="pictureFile" class="hidden" (change)="updatePicture($event.target.files)">
+    </div>
+    <div>
+        <form (ngOnSubmit)="onSubmit()" #profileForm="ngForm">
+            <label for="firtName">First Name:
+                <input id="firstName" class="spaced-left" [(ngModel)]="user.firstName" />
+            </label>
+            <br>
+            <label for="lastName">Last Name:
+                <input id="lastName" class="spaced-left" [(ngModel)]="user.lastName" />
+            </label>
+            <br>
+            <label for="email">Email:
+                <input id="email" class="spaced-left" [(ngModel)]="user.email" />
+            </label>
+            <br>
+            <input id="submitButton" class="btn btn-info" type="submit" value="Submit" />
+        </form>
+    </div>
 
-<h2>Employee:</h2>
-<h3>Name: {{ user.firstName }} {{ user.lastName }}</h3>
-<h3>Email: {{ user.email }}</h3>
+    <h2>User:</h2>
+    <h3>Name: {{ user.firstName }} {{ user.lastName }}</h3>
+    <h3>Email: {{ user.email }}</h3>
+</div>

@@ -10,28 +10,31 @@ import com.revature.repos.UsersRepo;
 public class UsersService {
 
 	private UsersRepo repo;
-	
+
 	@Autowired
 	public UsersService(UsersRepo repo) {
-	      this.repo=repo;
+		this.repo = repo;
 	}
-	
+
 	public Users saveUser(Users users) {
 		return repo.save(users);
-		//take input form user and save to the database(register new user)
-		
+		// take input form user and save to the database(register new user)
+
 	}
+
 	public Users getUserByEmail(String email) {
-		
+
 		return repo.findByEmail(email);
-		//we are getting user by email
+		// we are getting user by email
 	}
-public Users getUserByEmailAndPassword(String email, String passWord) {
-		
+
+	public Users getUserByEmailAndPassword(String email, String passWord) {
+
 		return repo.findByEmailAndPassword(email, passWord);
 	}
 	
-	
-	
+	public Users updateProfile(Users users) {
+		return saveUser(users);
+	}
 
 }

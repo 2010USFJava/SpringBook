@@ -13,19 +13,17 @@ import { DOCUMENT } from '@angular/common';
 export class UpdateProfileComponent implements OnInit {
 
   @Input() user: Users;
-  @Output() employeeChange = new EventEmitter<Users>();
+  @Output() userChange = new EventEmitter<Users>();
 
-  constructor(private http: HttpClient, @Inject(DOCUMENT) private _document: Document) {
-    this.user = new Users();
+  constructor(private httpClient: HttpClient, @Inject(DOCUMENT) private _document: Document) {
+    this.user = new Users(); // Change to get current user
   }
 
   ngOnInit(): void {
   }
 
-  updateProfile(employee: Users): void {
-    JSONemployee: JSON.stringify(employee);
-    this.http.post<any>('/placeholder', {});
-    this._document.defaultView.location.reload();
+  onSubmit(): void {
+    this.httpClient.post<Users>('http://localhost:4200/myapp/springbook/updateprofile', this.user).subscribe(result => this.user = result);
   }
 
   getPictureFile(): void {
