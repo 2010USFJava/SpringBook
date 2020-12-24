@@ -11,20 +11,21 @@ import { MessageService } from './message.service';
   providedIn: 'root'
 })
 
-export class CreatePostService {
+export class PostService {
+  private baseUrl = 'http://localhost:9090/myapp/springbook';
 
   constructor(
     private _http : HttpClient,
     private messageService: MessageService) { }
 
   newPost(post : Post):Observable<Post>{
-    return this._http.post<Post>("localhost:9090/login",post)
+    return this._http.post<Post>(`${this.baseUrl}/login`,post)
     .pipe(tap(_=> this.log('created a new post')),
     catchError(this.handleError<Post>('newPost')));
   }
 
   getAllPosts():Observable<Post[]>{
-    return this._http.get<Post[]>("localhost:9090/getAllPosts")
+    return this._http.get<Post[]>(`"localhost:9090/getAllPosts"`)
       .pipe(tap(_=> this.log('retrieved all posts')),
         catchError(this.handleError<Post[]>('getAllPosts', [])));
   }
@@ -53,6 +54,8 @@ export class CreatePostService {
   private log(message: string) {
     this.messageService.add(`Create-PostService: ${message}`);
   }
+
+
 
 
 }
