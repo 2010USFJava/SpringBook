@@ -1,5 +1,7 @@
 package com.revature.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,9 +28,12 @@ public class UsersService {
 		return repo.findByEmail(email);
 		//we are getting user by email
 	}
-public Users getUserByEmailAndPassword(String email, String passWord) {
+	public Users getUserByEmailAndPassword(String email, String passWord) {
 		
 		return repo.findByEmailAndPassword(email, passWord);
+	}
+	public List<Users> getUsersByFirstName(String firstName) {
+		return (List<Users>)repo.findByFirstName(firstName);
 	}
 	
 	

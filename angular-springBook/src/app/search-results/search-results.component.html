@@ -1,7 +1,11 @@
-<ul>
-    <li *ngFor="let user of users"
-    [class.selected]="user === selectedUser"
+<div *ngIf="users!=null; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock>
+  <ul>
+    <li *ngFor="let user of users" [class.selected]="user === selectedUser"
     (click)="onSelect(user)">
-    <span class="badge">{{user.firstName}}</span> {{user.lastName}}
-  </li>
-</ul>
+      <span class="badge">{{user.firstName}}</span> {{user.lastName}}
+    </li>
+  </ul>
+</ng-template>
+<ng-template #elseBlock>User not found</ng-template>
+

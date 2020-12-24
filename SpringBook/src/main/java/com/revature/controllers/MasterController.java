@@ -1,7 +1,12 @@
 package com.revature.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,7 +16,7 @@ import com.revature.models.Users;
 import com.revature.services.PostService;
 import com.revature.services.UsersService;
 
-@CrossOrigin(origins ="http://localhost:4102")
+@CrossOrigin(origins ="http://localhost:4200")
 @RestController
 @RequestMapping("/springbook")
 public class MasterController {
@@ -20,39 +25,29 @@ public class MasterController {
 	@Autowired
 	private PostService pService;
 	
-	@PostMapping("/registeruser")// in angular call this when user submit the form
+	@PostMapping(value="/registeruser")// in angular call this when user submit the form
 	public Users registerUser(@RequestBody Users users) throws Exception {
-		
-		String tempEmail = users.getEmail();
-			if(tempEmail != null && "".equalsIgnoreCase(tempEmail)) {
-				Users userObj=uService.getUserByEmail(tempEmail);
-				if(userObj !=null) {
-					throw new Exception("This Email"+tempEmail+"already exist in Database");
-					//before save in to the DB we have to check this email already is there or not.
-				}
-			}
-		
 		Users userObj=null;
 		userObj=uService.saveUser(users);
-		return userObj;
-		
+		return userObj;	
 	}
 	
-	@PostMapping("/login")
-	
+	@PostMapping(value="/login")
 	public Users loginUser(@RequestBody Users users) throws Exception {
-		
 		String tempEmail =users.getEmail();
 		String tempPass= users.getPassWord();
 		Users userObj= null;
 		if(tempEmail !=null && tempPass != null) {
-			
 			userObj=uService.getUserByEmailAndPassword(tempEmail, tempPass);
 		}
 		if(userObj==null) {
 			throw new Exception("User Does not Exited");
 		}
 		return userObj;
+	}
+	@GetMapping("/{firstName}")
+	public List<Users> searchByFirstName(@PathVariable String firstName) {
+		return uService.getUsersByFirstName(firstName);
 	}
 
 }

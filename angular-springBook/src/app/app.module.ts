@@ -12,10 +12,6 @@ import { SearchResultsComponent } from './search-results/search-results.componen
 import { CreateNewPostComponent } from './create-new-post/create-new-post.component';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
-
-
 
 
 @NgModule({
@@ -35,11 +31,7 @@ import { FormsModule } from '@angular/forms';
     UpdateProfileComponent,
     ResetPasswordComponent
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    FormsModule
-  ],
+  
   providers: [],
   bootstrap: [AppComponent]
 })

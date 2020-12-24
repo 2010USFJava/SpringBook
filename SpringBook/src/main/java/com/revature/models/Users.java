@@ -24,10 +24,9 @@ public class Users {
 	 private String firstName;
 	 private String lastName;
 	 private String email;
-	 private String userName;
 	 private String passWord;
 	 private String proImage;
-	 @OneToMany(mappedBy = "userId", fetch = FetchType.EAGER, cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
+	 @OneToMany(mappedBy = "users", fetch = FetchType.EAGER, cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
 	 private List<Post> posts;
  
  
