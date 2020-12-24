@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
    data => console.log("Responce recived"),
    error => console.log("error")
    )
-   
+
   }
+  
 }
