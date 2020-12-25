@@ -17,8 +17,8 @@ export class SearchBarComponent implements OnInit {
     //this.getUsersByFirstName(firstName: String) ;
   }
 
-  getUsersByFirstName(firstName: String): void {
-    this.usersService.getUsersByFirstName(firstName).subscribe(users => this.users = users);
-  }
+  //getUsersByFirstName(firstName: String): void {
+    //this.usersService.getUsersByFirstName(firstName).subscribe(users => this.users = users);
+  //}
 
 }
