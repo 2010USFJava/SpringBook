@@ -19,7 +19,7 @@ export class PostService {
     private messageService: MessageService) { }
 
   newPost(post : Post):Observable<Post>{
-    return this._http.post<Post>(`${this.baseUrl}/login`,post)
+    return this._http.post<Post>(`${this.baseUrl}/createPost`,post)
     .pipe(tap(_=> this.log('created a new post')),
     catchError(this.handleError<Post>('newPost')));
   }
