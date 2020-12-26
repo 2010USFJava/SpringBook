@@ -6,21 +6,21 @@
         <input type="file" id="pictureFile" class="hidden" (change)="updatePicture($event.target.files)">
     </div>
     <div>
-        <form (ngOnSubmit)="onSubmit()" #profileForm="ngForm">
-            <label for="firtName">First Name:
-                <input id="firstName" class="spaced-left" [(ngModel)]="user.firstName" />
-            </label>
-            <br>
-            <label for="lastName">Last Name:
-                <input id="lastName" class="spaced-left" [(ngModel)]="user.lastName" />
-            </label>
-            <br>
-            <label for="email">Email:
-                <input id="email" class="spaced-left" [(ngModel)]="user.email" />
-            </label>
-            <br>
-            <input id="submitButton" class="btn btn-info" type="submit" value="Submit" />
-        </form>
+        <!-- <form (ngOnSubmit)="onSubmit()" #profileForm="ngForm"> -->
+        <label for="firtName">First Name:
+            <input id="firstName" class="spaced-left" [(ngModel)]="user.firstName" />
+        </label>
+        <br>
+        <label for="lastName">Last Name:
+            <input id="lastName" class="spaced-left" [(ngModel)]="user.lastName" />
+        </label>
+        <br>
+        <label for="email">Email:
+            <input id="email" class="spaced-left" [(ngModel)]="user.email" />
+        </label>
+        <br>
+        <input id="submitButton" class="btn btn-info" type="submit" value="Submit" />
+        <!-- </form> -->
     </div>
 
     <h2>User:</h2>
