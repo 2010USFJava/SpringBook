@@ -17,7 +17,7 @@ import com.revature.repos.UsersRepo;
 //import com.revature.services.PostService;
 import com.revature.services.UsersService;
 
-@CrossOrigin(origins ="http://localhost:4200")
+@CrossOrigin(origins ="http://localhost:52522", allowCredentials ="true")
 @RestController
 @RequestMapping("/springbook")
 public class MasterController {
