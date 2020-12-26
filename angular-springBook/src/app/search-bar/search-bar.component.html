@@ -1,2 +1,9 @@
 <h1>Find your friends</h1>
-<input type="text" name="searchbar" placeholder="Enter first name">
+<div>
+    <input #searchBox placeholder="Enter first name"
+    (input)="getUserByFirstName(searchBox.value)"/>
+    
+</div>
+<div>
+    <app-search-results [users]=users></app-search-results>
+</div>

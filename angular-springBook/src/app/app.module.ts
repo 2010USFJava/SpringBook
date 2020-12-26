@@ -18,8 +18,6 @@ import { ProfileComponent } from './profile/profile.component';
 import { NavbarComponent } from './navbar/navbar.component';
 
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,13 +32,14 @@ import { NavbarComponent } from './navbar/navbar.component';
     CreateNewPostComponent,
     UpdateProfileComponent
   ],
+  
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     AppRoutingModule
-    
   ],
+
   providers: [],
   bootstrap: [AppComponent]
 })

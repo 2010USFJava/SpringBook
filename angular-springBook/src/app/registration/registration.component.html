@@ -1,1 +1,41 @@
-<p>registration works!</p>
+
+  <div class="container">
+    <h2>Registration form</h2>
+    <div [hidden]="submitted" style="width: 400px;"></div>
+    <form #Registerform="ngForm" (ngSubmit)="registerUser()">
+      <small class ="text-danger">{{msg}}</small>
+      <div class="form-group">
+        <label for="firstName">First Name:</label>
+        <input type="text" class="form-control" placeholder="Enter First Name" name="firstName" [(ngModel)]="users.firstName" #firstName="ngModel" required
+        [class.is-invalid]="firstName.invalid && firstName.touched">
+        <small class="text-danger" [class.d-none]="firstName.valid || firstName.untouched">First Name Is Requeird</small>
+      </div>
+      <div class="form-group">
+        <label for="lastName">Last Name:</label>
+        <input type="text" class="form-control" placeholder="Enter Last Name" name="lastName" [(ngModel)]="users.lastName" #lastName="ngModel" required
+        [class.is-invalid]="lastName.invalid && lastName.touched">
+        <small class="text-danger" [class.d-none]="lastName.valid || lastName.untouched">Last Name ID Is Requeird</small>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" placeholder="Enter email" name="email" [(ngModel)]="users.email" #email="ngModel" required
+        [class.is-invalid]="email.invalid && email.touched">
+        <small class="text-danger" [class.d-none]="email.valid || email.untouched">Email ID Is Requeird</small>
+      </div>
+      
+      <div class="form-group">
+        <label for="pwd">Password:</label>
+        <input type="password" class="form-control" placeholder="Enter password" name="passWord"[(ngModel)]="users.passWord" required #passWord="ngModel"
+        [class.is-invalid]="passWord.invalid && passWord.touched">
+        <small class="text-danger" [class.d-none]="passWord.valid || passWord.untouched">Password field Is Requeird</small>
+      </div>
+      <button [disabled]="Registerform.form.invalid"type="submit" class="btn btn-info">Register</button>
+    </form>
+    <small class="float-right btextual" [routerLink]="['/']">Existing User Please Login Here</small>
+    <br>
+    </div> 
+    <div [hidden]="!submitted">
+      <h4>successfully Register!!</h4> 
+    </div>  
+  
+
