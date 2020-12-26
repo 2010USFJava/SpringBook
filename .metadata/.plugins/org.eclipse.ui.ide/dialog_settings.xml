@@ -2,7 +2,6 @@
 <section name="Workbench">
 	<list key="installedFeatures">
 		<item value="com.ianbrandt.tools.m2e.mdp.feature:0.0.4.201409291703"/>
-		<item value="mirur.feature:2.1.0.201910202111"/>
 		<item value="org.eclipse.buildship:3.1.4.v20200326-1743"/>
 		<item value="org.eclipse.egit.gitflow.feature:5.9.0.202009080501-r"/>
 		<item value="org.eclipse.egit:5.9.0.202009080501-r"/>
@@ -45,21 +44,10 @@
 		<item value="org.sonatype.m2e.egit.feature:0.15.1.201806191431"/>
 		<item value="org.sonatype.m2e.mavenarchiver.feature:0.17.5.202002191804"/>
 	</list>
-	<section name="ChooseWorkspaceDialogSettings">
-		<item key="DIALOG_X_ORIGIN" value="407"/>
-		<item key="DIALOG_Y_ORIGIN" value="247"/>
-	</section>
-	<section name="WORKBENCH_SETTINGS">
-		<list key="ENABLED_TRANSFERS">
-		</list>
-	</section>
-	<section name="SmartImportWizard">
-		<item key="SmartImportRootWizardPage.STORE_HIDE_ALREADY_OPEN" value="false"/>
-		<item key="SmartImportRootWizardPage.STORE_CLOSE_IMPORTED" value="false"/>
-		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
-		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
-		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
-			<item value="C:\Users\chris\Documents\GitHub\SpringBook\SpringBook"/>
-		</list>
+	<section name="CleanDialogSettings">
+		<item key="TOGGLE_SELECTED" value="false"/>
+		<item key="DIALOG_WIDTH" value="824"/>
+		<item key="DIALOG_HEIGHT" value="459"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-36|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
 	</section>
 </section>

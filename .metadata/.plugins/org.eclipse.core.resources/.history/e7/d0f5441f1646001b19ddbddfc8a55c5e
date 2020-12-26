@@ -1,0 +1,24 @@
+package com.revature.services;
+
+<<<<<<< HEAD
+import org.springframework.stereotype.Service;
+
+=======
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.revature.repos.PostsRepo;
+
+
+>>>>>>> 2ed3f8ddacf9d39290c0d9aa9072bda39a812d8f
+@Service
+public class PostService {
+private PostsRepo repo;
+	
+	@Autowired
+	public PostService(PostsRepo repo) {
+	      this.repo=repo;
+	}
+	
+
+}
