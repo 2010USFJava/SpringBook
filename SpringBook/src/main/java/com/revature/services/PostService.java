@@ -21,7 +21,8 @@ private PostsRepo pRepo;
 	
 	@Transactional(readOnly=true, isolation=Isolation.READ_COMMITTED)
 	public List<Post>getAll(){
-		return (List<Post>) pRepo.findAllPosts();
+		return (List<Post>) pRepo.findAll();
+		
 	}
 	
 	public Post savePost(Post post) {//create a new post
@@ -29,8 +30,8 @@ private PostsRepo pRepo;
 	}
 	
 	@Transactional(readOnly=true, isolation=Isolation.READ_COMMITTED)
-	public List<Post> findPostsById(int id) {
-		return pRepo.findPostsById(id);	
+	public List<Post> findPostByUser_id(int id) {
+		return pRepo.findByUser_id(id);
 	}
 
 }

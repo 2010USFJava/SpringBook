@@ -2,19 +2,17 @@ package com.revature.controllers;
 
 import java.util.Iterator;
 import java.util.List;
-
 import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.revature.models.Post;
 import com.revature.models.Users;
 import com.revature.repos.PostsRepo;
@@ -22,7 +20,7 @@ import com.revature.repos.UsersRepo;
 import com.revature.services.PostService;
 import com.revature.services.UsersService;
 
-@CrossOrigin(origins ="http://localhost:52522", allowCredentials ="true")
+@CrossOrigin(origins ="http://localhost:4200", allowCredentials ="true")
 @RestController
 @RequestMapping("/springbook")
 public class MasterController {
@@ -79,7 +77,7 @@ public class MasterController {
 		throw new Exception("Not Found");
 	}		
 	
-	@PostMapping(value="/")
+	@PutMapping(value="/")
 	public Post newPost(@Valid @RequestBody Post post) throws Exception{
 		Post newPost = pService.savePost(post);
 		return newPost;
