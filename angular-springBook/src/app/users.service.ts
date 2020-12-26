@@ -8,11 +8,11 @@ import { catchError, map, tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class UsersService {
-  private baseUrl = 'http://localhost:9090/myapp/springbook';
+  baseUrl = 'http://localhost:9090/myapp/springbook';
 
   constructor(private http: HttpClient) { }
 
-  getUsersByFirstName(firstName: String): Observable<any> {
+  getUsersByFirstName(firstName: String): Observable<Users[]> {
     return this.http.get<Users[]>(`${this.baseUrl}/${firstName}`);
   }
 

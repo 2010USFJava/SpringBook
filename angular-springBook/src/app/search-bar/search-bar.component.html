@@ -1,10 +1,9 @@
 <h1>Find your friends</h1>
-<!--<div>
-    <input type="text" name="searchbar" placeholder="Enter first name"
-    [(ngModel)]="firstName" (input)="getUserByFirstName()"/>
+<div>
+    <input #searchBox placeholder="Enter first name"
+    (input)="getUserByFirstName(searchBox.value)"/>
     
 </div>
 <div>
-    <app-search-results [users]></app-search-results>
+    <app-search-results [users]=users></app-search-results>
 </div>
--->

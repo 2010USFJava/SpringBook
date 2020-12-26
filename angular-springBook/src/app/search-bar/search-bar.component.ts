@@ -8,13 +8,11 @@ import { UsersService } from '../users.service';
   styleUrls: ['./search-bar.component.css']
 })
 export class SearchBarComponent implements OnInit {
-  selectedUser: Users;
   users: Users[];
 
   constructor(private usersService: UsersService) { }
 
   ngOnInit() {
-    //this.getUsersByFirstName(firstName: String) ;
   }
 
   //getUsersByFirstName(firstName: String): void {
