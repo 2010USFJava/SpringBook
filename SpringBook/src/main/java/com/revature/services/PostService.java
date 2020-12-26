@@ -1,17 +1,36 @@
 package com.revature.services;
 
-import org.springframework.stereotype.Service;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.revature.models.Post;
 import com.revature.repos.PostsRepo;
 
 @Service
 public class PostService {
-private PostsRepo repo;
+private PostsRepo pRepo;
 	
 	@Autowired
 	public PostService(PostsRepo repo) {
-	      this.repo=repo;
+	      this.pRepo=repo;
 	}
 	
+	@Transactional(readOnly=true, isolation=Isolation.READ_COMMITTED)
+	public List<Post>getAll(){
+		return (List<Post>) pRepo.findAllPosts();
+	}
+	
+	public Post savePost(Post post) {//create a new post
+		return pRepo.save(post);
+	}
+	
+	@Transactional(readOnly=true, isolation=Isolation.READ_COMMITTED)
+	public List<Post> findPostsById(int id) {
+		return pRepo.findPostsById(id);	
+	}
 
 }

@@ -1,8 +1,10 @@
 package com.revature.controllers;
 
-import java.util.List;
 import java.util.Iterator;
+import java.util.List;
+
 import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -12,9 +14,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.revature.models.Post;
 import com.revature.models.Users;
+import com.revature.repos.PostsRepo;
 import com.revature.repos.UsersRepo;
-//import com.revature.services.PostService;
+import com.revature.services.PostService;
 import com.revature.services.UsersService;
 
 @CrossOrigin(origins ="http://localhost:52522", allowCredentials ="true")
@@ -23,13 +28,17 @@ import com.revature.services.UsersService;
 public class MasterController {
 	
 	private UsersService uService;
-	//private PostService pService;
-	@Autowired
-	private UsersRepo uRepo;
+	private PostService pService;
 	
 	@Autowired
-	public MasterController(UsersService usService) {
+	private UsersRepo uRepo;
+	@Autowired
+	private PostsRepo pRepo;
+	
+	@Autowired
+	public MasterController(UsersService usService, PostService pService) {
 		this.uService=usService;
+		this.pService=pService;
 	}
 	
 	@GetMapping("/{firstName}")
@@ -68,7 +77,13 @@ public class MasterController {
 		}
 	 }
 		throw new Exception("Not Found");
-	}			
+	}		
+	
+	@PostMapping(value="/")
+	public Post newPost(@Valid @RequestBody Post post) throws Exception{
+		Post newPost = pService.savePost(post);
+		return newPost;
+	}
 }	
 	
 	
