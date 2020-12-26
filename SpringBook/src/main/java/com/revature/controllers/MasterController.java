@@ -82,57 +82,18 @@ public class MasterController {
 		Post newPost = pService.savePost(post);
 		return newPost;
 	}
-}	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-//	@PostMapping("/registeruser")// in angular call this when user submit the form
-//	public Users registerUser(@Valid @RequestBody Users users) throws Exception {
-//		
-//		String tempEmail = users.getEmail();
-//			if(tempEmail != null && "".equalsIgnoreCase(tempEmail)) {
-//				Users userObj=uService.getUserByEmail(tempEmail);
-//				if(userObj !=null) {
-//					throw new Exception("This Email"+tempEmail+"already exist in Database");
-//					//before save in to the DB we have to check this email already is there or not.
-//				}
-//			}
-//		
-//		Users userObj=null;
-//		userObj=uService.saveUser(users);
-//		return userObj;
-//		
-//	}
-//	
-//	@PostMapping("/login")
-//	
-//	public Users loginUser(@RequestBody Users users) throws Exception {
-//		
-//		String tempEmail =users.getEmail();
-//		String tempPass= users.getPassWord();
-//		Users userObj= null;
-//		if(tempEmail !=null && tempPass != null) {
-//			
-//			userObj=uService.getUserByEmailAndPassWord(tempEmail, tempPass);
-//		}
-//		if(userObj==null) {
-//			throw new Exception("User Does not Exited");
-//		}
-//		return userObj;
-//	}
-
-
+	@PostMapping("/updateprofile")
+	public Users updateProfile(@RequestBody Users users) {
+		Users updatedUsers = null;
+		if(users.getFirstName() != null && users.getLastName() != null) {
+			updatedUsers = uService.updateProfile(users);
+		}
+		if(updatedUsers == null) {
+			System.out.println("User does not exist.");
+		}
+		return updatedUsers;
+	}
+}
 
 

@@ -39,9 +39,8 @@ public class UsersService {
 		return (List<Users>)uRepo.findByFirstName(firstName);
 	}
 
-	
-	
-	
-	
+	public Users updateProfile(Users users) {
+		return saveUser(users);
+	}
 
 }
