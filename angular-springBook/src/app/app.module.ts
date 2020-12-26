@@ -17,6 +17,7 @@ import { PostDetailsComponent } from './post-details/post-details.component';
 import { ProfileComponent } from './profile/profile.component';
 import { NavbarComponent } from './navbar/navbar.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
