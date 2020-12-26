@@ -30,7 +30,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     SearchBarComponent,
     ResetPasswordComponent,
     CreateNewPostComponent,
-    UpdateProfileComponent
+    UpdateProfileComponent,
+    SearchResultsComponent
   ],
   
   imports: [

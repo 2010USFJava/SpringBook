@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, Inject, Input, EventEmitter } from '@angular/core';
-import { Users } from 'src/app/users';
+import { Users} from '../users';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { DOCUMENT } from '@angular/common';
@@ -21,6 +21,7 @@ export class UpdateProfileComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
 
   onSubmit(): void {
     this.httpClient.post<Users>('http://localhost:4200/myapp/springbook/updateprofile', this.user).subscribe(result => this.user = result);

@@ -19,7 +19,7 @@ export class PostService {
     private messageService: MessageService) { }
 
   newPost(post : Post):Observable<Post>{
-    return this._http.post<Post>(`${this.baseUrl}/createPost`,post)
+    return this._http.put<Post>(`${this.baseUrl}/createPost`,post)
     .pipe(tap(_=> this.log('created a new post')),
     catchError(this.handleError<Post>('newPost')));
   }
@@ -50,9 +50,9 @@ export class PostService {
     };
   }
 
-  /** Log a HeroService message with the MessageService */
+  /* Log a postService message with the MessageService */
   private log(message: string) {
-    this.messageService.add(`Create-PostService: ${message}`);
+    this.messageService.add(`PostService: ${message}`);
   }
 
 
