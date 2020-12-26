@@ -1,9 +1,9 @@
 <h1>Find your friends</h1>
 <div>
     <input #searchBox placeholder="Enter first name"
-    (input)="getUserByFirstName(searchBox.value)"/>
+    (input)="getUsersByFirstName(searchBox.value)"/>
     
 </div>
 <div>
-    <app-search-results [users]=users></app-search-results>
+    <app-search-results [users]="users"></app-search-results>
 </div>
