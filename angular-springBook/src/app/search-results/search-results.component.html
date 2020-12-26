@@ -1,11 +1,11 @@
 <div *ngIf="users!=null; then thenBlock else elseBlock"></div>
 <ng-template #thenBlock>
-  <ul>
-    <li *ngFor="let user of users" [class.selected]="user === selectedUser"
-    (click)="onSelect(user)">
+  <div class="grid grid-pad">
+    <a *ngFor="let user of users" class="col-1-4"
+    router-Link="/profile/{{user}}">
       <span class="badge">{{user.firstName}}</span> {{user.lastName}}
-    </li>
-  </ul>
+  </a>
+  </div>
 </ng-template>
 <ng-template #elseBlock>User not found</ng-template>
 
