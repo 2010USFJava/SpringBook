@@ -17,3 +17,7 @@ label {
 input[type=submit] {
     margin-left: 35em;
 }
+
+#profileImage {
+    width: 15%;
+}

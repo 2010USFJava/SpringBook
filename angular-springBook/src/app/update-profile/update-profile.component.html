@@ -2,12 +2,13 @@
 <div class="container">
     <h2>Update Profile</h2>
     <div>
-        <img src="https://placeholder.com" (click)="this.getPictureFile()" />
+        <img id="profileImage" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+            (click)="this.getPictureFile()" />
         <br>
         <input type="file" id="pictureFile" class="hidden" (change)="updatePicture($event.target.files)">
+        <button class="btn btn-success" [disabled]="!currentFileUpload" (click)="upload()">Upload</button>
     </div>
     <div>
-        <!-- <form (ngOnSubmit)="onSubmit()" #profileForm="ngForm"> -->
         <label for="firtName">First Name:
             <input id="firstName" class="spaced-left" [(ngModel)]="user.firstName" />
         </label>
@@ -20,8 +21,13 @@
             <input id="email" class="spaced-left" [(ngModel)]="user.email" />
         </label>
         <br>
-        <input id="submitButton" class="btn btn-info" type="submit" value="Submit" />
-        <!-- </form> -->
+        <input id="submitButton" class="btn btn-info" type="submit" value="Submit" (click)="onSubmit()" />
+        <div *ngIf="currentFileUpload" class="progress">
+            <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar"
+                attr.aria-valuenow="{{progress.percentage}}" aria-valuemin="0" aria-valuemax="100"
+                [ngStyle]="{width:progress.percentage+'%'}">
+                {{progress.percentage}}%</div>
+        </div>
     </div>
 
     <h2>User:</h2>
