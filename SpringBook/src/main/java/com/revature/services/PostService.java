@@ -25,7 +25,9 @@ private PostsRepo pRepo;
 		
 	}
 	
+	@Transactional
 	public Post savePost(Post post) {//create a new post
+		System.out.println("in post service");
 		return pRepo.save(post);
 	}
 	

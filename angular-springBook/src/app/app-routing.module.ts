@@ -15,7 +15,7 @@ import { UpdateProfileComponent } from './update-profile/update-profile.componen
 const routes : Routes=[
 {path:'',component:LoginComponent},
 {path:'registration',component: RegistrationComponent},
-{path: 'profile/:users', component:ProfileComponent},
+{path: 'profile', component:ProfileComponent},
 {path: 'newpost', component:CreateNewPostComponent},
 {path: 'viewpost',component:PostDetailsComponent},
 {path: 'viewfeed',component:PostsListComponent},

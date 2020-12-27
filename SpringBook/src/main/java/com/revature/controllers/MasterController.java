@@ -50,8 +50,9 @@ public class MasterController {
 		this.s3Services = s3Services;
 	}
 
-	@GetMapping("/{firstName}")
+	@GetMapping("/firstname/{firstName}")
 	public List<Users> searchByFirstName(@PathVariable String firstName) {
+		System.out.println("in mas");
 		return uService.getUsersByFirstName(firstName);
 	}
 
@@ -59,7 +60,7 @@ public class MasterController {
 	public List<Users> getAll() {
 		return (List<Users>) uRepo.findAll();
 	}
-
+  
 	@GetMapping(value = "/{email}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Users findByEmail(String email) {
 		return this.uService.getUserByEmail(email);
@@ -100,6 +101,7 @@ public class MasterController {
 		return addUsers;
 	}
 
+
 	@PostMapping(value = "/login")
 	public Users loginUser(@Valid @RequestBody Users users) throws Exception {
 		System.out.println(users.getEmail());
@@ -117,10 +119,23 @@ public class MasterController {
 		throw new Exception("Not Found");
 	}
 
-	@PutMapping(value = "/")
-	public Post newPost(@Valid @RequestBody Post post) throws Exception {
-		Post newPost = pService.savePost(post);
-		return newPost;
+
+	@PutMapping(value="/createPost")
+	public Post newPost(@Valid @RequestBody Post post) throws Exception{
+		System.out.println(post);
+		post.getUsers().getUserId();
+		System.out.println(post.getUsers().getUserId());
+		return pService.savePost(post);
+	}
+	
+	@GetMapping(value="/getAllPosts")
+	public List<Post> getAllPosts(){
+		return pService.getAll();
+	}
+	
+	@GetMapping(value="/getPostById/{id}" , produces=MediaType.APPLICATION_JSON_VALUE) 
+	public List<Post> findPostByUserId(int id){
+		return pService.findPostByUser_id(id);
 	}
 
 	@PostMapping("/updateprofile")
