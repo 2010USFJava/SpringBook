@@ -17,7 +17,7 @@ export class UsersService {
     private messageService: MessageService) { }
 
   getUsersByFirstName(firstName: String): Observable<Users[]> {
-    return this.http.get<Users[]>(`${this.baseUrl}/${firstName}`)
+    return this.http.get<Users[]>(`${this.baseUrl}/firstname/${firstName}`)
       .pipe(tap(_ => this.log('got users by first name')),
         catchError(this.handleError<Users[]>('getUsersByFirstName')));
   }

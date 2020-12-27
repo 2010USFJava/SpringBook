@@ -39,8 +39,9 @@ public class MasterController {
 		this.pService=pService;
 	}
 	
-	@GetMapping("/{firstName}")
+	@GetMapping("/firstname/{firstName}")
 	public List<Users> searchByFirstName(@PathVariable String firstName) {
+		System.out.println("in mas");
 		return uService.getUsersByFirstName(firstName);
 	}
 

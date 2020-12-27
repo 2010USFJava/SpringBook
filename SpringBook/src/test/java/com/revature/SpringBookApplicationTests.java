@@ -33,7 +33,7 @@ class SpringBookApplicationTests {
 	@Test
 	public void getUserByFirstNameTest() {
 		String firstName = "Kim";
-		when(uRepo.findByFirstName(firstName)).thenReturn(Stream
+		when(uRepo.findByFirst_name(firstName)).thenReturn(Stream
 				.of(new Users(1,"Kim","Smith","kimS@mail.com","pass","img.com",new ArrayList<Post>()),
 						new Users(2,"Kim","Jackson","kimJ@mail.com","pass1","img1.com",new ArrayList<Post>()),
 						new Users(3,"Kim","Mack","kimM@mail.com","pass2","img2.com",new ArrayList<Post>())).collect(Collectors.toList()));
