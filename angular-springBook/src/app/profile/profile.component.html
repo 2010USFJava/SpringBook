@@ -1,3 +1,30 @@
 <app-navbar></app-navbar>
-<p>profile works!</p>
+<h2>My Profile</h2>
+<!-- Personal-Information -->
+<div *ngIf="user" class="panel panel-default panel-fill">
+    <div class="panel-body">
+        <div class="about-info-p">
+            <strong>Full Name</strong>
+            <br>
+            <p class="text-muted">{{user.firstName}} {{user.lastName}}</p>
+        </div>
+        <div class="about-info-p">
+            <strong>Mobile</strong>
+            <br>
+            <p class="text-muted">(123) 123 1234</p>
+        </div>
+        <div class="about-info-p">
+            <strong>Email</strong>
+            <br>
+            <p class="text-muted">{{user.email}}</p>
+        </div>
+        <div class="about-info-p m-b-0">
+            <strong>Location</strong>
+            <br>
+            <p class="text-muted">USA</p>
+        </div>
+    </div>
+    <button routerLink="/updateprofile">Update</button>
+</div>
+<!-- Personal-Information -->
 
