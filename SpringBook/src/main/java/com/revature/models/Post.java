@@ -30,8 +30,8 @@ public class Post {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int postId;
 	@JsonBackReference
-    @ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = { CascadeType.ALL})
-    @JoinColumn(name = "user_id", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
+    @JoinColumn(name = "user_id", referencedColumnName = "user_id", nullable = false)
     private Users users;
 	@Column(name="image_url")
 	private String imageUrl;

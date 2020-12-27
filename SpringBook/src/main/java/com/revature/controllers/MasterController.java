@@ -77,10 +77,22 @@ public class MasterController {
 		throw new Exception("Not Found");
 	}		
 	
-	@PutMapping(value="/")
+	@PutMapping(value="/createPost")
 	public Post newPost(@Valid @RequestBody Post post) throws Exception{
-		Post newPost = pService.savePost(post);
-		return newPost;
+		System.out.println(post);
+		post.getUsers().getUserId();
+		System.out.println(post.getUsers().getUserId());
+		return pService.savePost(post);
+	}
+	
+	@GetMapping(value="/getAllPosts")
+	public List<Post> getAllPosts(){
+		return pService.getAll();
+	}
+	
+	@GetMapping(value="/getPostById/{id}" , produces=MediaType.APPLICATION_JSON_VALUE) 
+	public List<Post> findPostByUserId(int id){
+		return pService.findPostByUser_id(id);
 	}
 	
 	@PostMapping("/updateprofile")

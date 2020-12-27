@@ -18,8 +18,8 @@ export class PostService {
     private _http : HttpClient,
     private messageService: MessageService) { }
 
-  newPost(post : Post):Observable<Post>{
-    return this._http.put<Post>(`${this.baseUrl}/createPost`,post)
+  newPost(post : Object):Observable<Object>{ //put for S3
+    return this._http.put<Object>(`${this.baseUrl}/createPost`,post)
     .pipe(tap(_=> this.log('created a new post')),
     catchError(this.handleError<Post>('newPost')));
   }
