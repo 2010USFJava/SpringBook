@@ -1,6 +1,6 @@
 package com.revature.models;
 
-import java.util.List;
+import java.io.Serializable;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -11,7 +11,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -24,13 +23,16 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name ="post")
-public class Post {
+public class Post implements Serializable{
+
+	private static final long serialVersionUID = 7757699880879456454L;
+	
 	@Id
 	@Column(name="post_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int postId;
 	@JsonBackReference
-    @ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
+    @ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = { CascadeType.MERGE, CascadeType.REFRESH})
     @JoinColumn(name = "user_id", referencedColumnName = "user_id", nullable = false)
     private Users users;
 	@Column(name="image_url")

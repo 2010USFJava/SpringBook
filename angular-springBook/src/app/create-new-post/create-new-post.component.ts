@@ -18,12 +18,6 @@ export class CreateNewPostComponent implements OnInit {
   submitted = false;
   user: Users=this._service.currentUser;
 
-  //@Input() post : Post = new Post();
-  //@Output() user: Users=this._service.currentUser;
-
-  // @Input() user: Users=this._service.currentUser;
-  // @Output() this.post.user = this.user;
-
   constructor(private pServ: PostService, private _service:UsersService, private router: Router) {
     this.user=_service.currentUser;
     this.post.users=this.user;
