@@ -3,6 +3,7 @@ import {NgForm} from '@angular/forms';
 import { UsersService } from '../users.service';
 import {Users } from '../users';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 
 @Component({
@@ -13,10 +14,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class LoginComponent implements OnInit {
  email :string;
  passWord : string;
- users =new Users();
+ users = new Users();
+ result : Users;
  msg='';  
 
-  constructor(private _service : UsersService, private _route: ActivatedRoute, private _router: Router) { }
+  constructor(private _service : UsersService, private _route: ActivatedRoute, private _router: Router) { 
+    
+  }
 
   ngOnInit(): void {
   }
@@ -24,8 +28,11 @@ export class LoginComponent implements OnInit {
     
    this._service.loginUserFormRemote(this.users.email, this.users.passWord).subscribe(
    data =>{
-    console.log("Response recived");
-    this._router.navigate(['/viewfeed']);
+     this.result=data;
+     console.log(this.result);
+     console.log("Response recived");
+     this._service.currentUser= this.result;
+     this._router.navigate(['/viewfeed']);
    },
 
    error =>{

@@ -3,6 +3,7 @@ import { fromEventPattern } from 'rxjs';
 import { Post } from '../post';
 import { PostService } from '../post.service';
 
+
 @Component({
   selector: 'app-posts-list',
   templateUrl: './posts-list.component.html',
@@ -18,6 +19,7 @@ export class PostsListComponent implements OnInit {
 
   getPosts(): void {
     this.postService.getAllPosts().subscribe(posts => this.posts =  posts);
+    console.log("try to view post");
   }
 
 }
