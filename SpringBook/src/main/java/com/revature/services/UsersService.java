@@ -42,5 +42,11 @@ public class UsersService {
 	public Users updateProfile(Users users) {
 		return saveUser(users);
 	}
+	
+	public Users resetPassword(Users users) {
+		Users currentUser = uRepo.findByEmail(users.getEmail());
+		currentUser.setPassWord(users.getPassWord());
+		return uRepo.save(currentUser);
+	}
 
 }

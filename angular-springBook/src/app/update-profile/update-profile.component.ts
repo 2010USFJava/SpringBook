@@ -1,9 +1,9 @@
-import { Component, OnInit, Output, Inject, EventEmitter } from '@angular/core';
-import { Users} from '../users';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Users } from '../users';
 import { HttpClient } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { DOCUMENT } from '@angular/common';
 import { UsersService } from '../users.service';
+import { UploadFileService } from '../upload-file.service';
+import { HttpResponse, HttpEventType } from '@angular/common/http';
 
 
 @Component({
@@ -12,11 +12,14 @@ import { UsersService } from '../users.service';
   styleUrls: ['./update-profile.component.css']
 })
 export class UpdateProfileComponent implements OnInit {
-  
-   user: Users;
+
+  currentFileUpload: File;
+  progress: { percentage: number } = { percentage: 0 };
+  @Input() fileUpload: string;
+  user: Users;
   @Output() userChange = new EventEmitter<Users>();
 
-  constructor(private httpClient: HttpClient, @Inject(DOCUMENT) private _document: Document,private userService: UsersService) {
+  constructor(private httpClient: HttpClient, private userService: UsersService, private uploadService: UploadFileService) {
     this.user = userService.currentUser; // Change to get current user
     console.log(this.user);
   }
@@ -26,6 +29,10 @@ export class UpdateProfileComponent implements OnInit {
 
 
   onSubmit(): void {
+    this.updateProfile();
+  }
+
+  updateProfile(): void {
     this.httpClient.post<Users>('http://localhost:4200/myapp/springbook/updateprofile', this.user).subscribe(result => this.user = result);
   }
 
@@ -34,10 +41,24 @@ export class UpdateProfileComponent implements OnInit {
   }
 
   updatePicture(fileInput: any): void {
-    /* let newPicture: File = fileInput.item(0);
-    const formData: FormData = new FormData();
-    formData.append('Image', newPicture, newPicture.name);
-    this.http.post('/placeholder', formData); */
+    this.currentFileUpload = fileInput;
+  }
+
+  upload() {
+    this.progress.percentage = 0;
+
+    this.currentFileUpload = this.currentFileUpload;
+    //this.user.proImage = s3 address + this.currentFileUpload.name;
+    this.updateProfile();
+    this.uploadService.pushFileToStorage(this.currentFileUpload).subscribe(event => {
+      if (event.type === HttpEventType.UploadProgress) {
+        this.progress.percentage = Math.round(100 * event.loaded / event.total);
+      } else if (event instanceof HttpResponse) {
+        console.log('File is completely uploaded!');
+      }
+    });
+
+    this.currentFileUpload = undefined;
   }
 
 }

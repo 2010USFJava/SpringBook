@@ -1,30 +1,0 @@
-
-p	java:S106?"9Replace this use of System.out or System.err by a logger.(øô„§ùÿÿÿÿ8µáÍ˜é.HœRMAJORZ
-CODE_SMELL
-}	java:S1128"FDefine and throw a dedicated exception instead of using a generic one.(¦ŸÌ¹øÿÿÿÿ8´ˆ™é.HRMAJORZ
-CODE_SMELL
-s	java:S125["<This block of commented-out lines of code should be removed.(¸Ã”Æùÿÿÿÿ8ªÁş–é.HRMAJORZ
-CODE_SMELL
-n	java:S125"<This block of commented-out lines of code should be removed.(—¾Üî8ˆ—“™é.H¶RMAJORZ
-CODE_SMELL
-~
-java:S46848"@Replace this persistent entity with a simple POJO or DTO object.(¦ŸÌ¹øÿÿÿÿ8µáÍ˜é.H·RCRITICALZVULNERABILITY
-k
-java:S1854<"8Remove this useless assignment to local variable "user".(”ùßµ8µáÍ˜é.H¸RMAJORZ
-CODE_SMELL
-“
-java:S14881"`Immediately return this expression instead of assigning it to the temporary variable "addUsers".(¶Š¿À8¶¿ñ—é.H¹RMINORZ
-CODE_SMELL
-s	java:S125"<This block of commented-out lines of code should be removed.(ß—ÿÿÿÿÿ8êŒ—é.HºRMAJORZ
-CODE_SMELL
-y
-java:S46840"@Replace this persistent entity with a simple POJO or DTO object.(Û¯Çá8¶¿ñ—é.H»RCRITICALZVULNERABILITY
-}	java:S112F"FDefine and throw a dedicated exception instead of using a generic one.(¸Ò ×üÿÿÿÿ8û¤™é.H¼RMAJORZ
-CODE_SMELL
-p	java:S106:"9Replace this use of System.out or System.err by a logger.(ä åëşÿÿÿÿ8úÎÿ˜é.H½RMAJORZ
-CODE_SMELL
-j	java:S1069"9Replace this use of System.out or System.err by a logger.(×õø8µáÍ˜é.H¾RMAJORZ
-CODE_SMELL
-_
-java:S1905%"'Remove this unnecessary cast to "List".(´ó“½ûÿÿÿÿ8ñÜÒšé.H¿RMINORZ
-CODE_SMELL
