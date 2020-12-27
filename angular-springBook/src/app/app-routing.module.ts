@@ -22,7 +22,6 @@ const routes : Routes=[
 {path: 'resetpassword',component:ResetPasswordComponent},
 {path: 'searchbar',component:SearchBarComponent},
 {path: 'updateprofile',component:UpdateProfileComponent}
-
 ];
 
 @NgModule({

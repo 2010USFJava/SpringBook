@@ -1,4 +1,4 @@
-<app-navbar></app-navbar>
+<app-navbar *ngIf="user != null" [user]="result"></app-navbar>
 
 <router-outlet></router-outlet>
 

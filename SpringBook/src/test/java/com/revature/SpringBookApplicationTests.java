@@ -52,9 +52,9 @@ class SpringBookApplicationTests {
 	public void findPostByUser_idTest() {
 		int user_id = 1;
 		when(pRepo.findByUser_id(user_id)).thenReturn(Stream
-				.of(new Post(1,  new Users(1,"Kim","Smith","kimS@mail.com","pass","img.com",new ArrayList<Post>()),"Kim", "Smith", 1,new ArrayList<Like>()),
-						new Post(2, new Users(2,"Kim","Jackson","kimJ@mail.com","pass1","img1.com",new ArrayList<Post>()),"Kim","Jackson", 2,new ArrayList<Like>()),
-						new Post(3, new Users(3,"Kim","Mack","kimM@mail.com","pass2","img2.com",new ArrayList<Post>()),"Kim","Mack", 3 ,new ArrayList<Like>())).collect(Collectors.toList()));
+				.of(new Post(1,  new Users(1,"Kim","Smith","kimS@mail.com","pass","img.com",new ArrayList<Post>()),"Kim", "Smith", 1),
+						new Post(2, new Users(2,"Kim","Jackson","kimJ@mail.com","pass1","img1.com",new ArrayList<Post>()),"Kim","Jackson", 2),
+						new Post(3, new Users(3,"Kim","Mack","kimM@mail.com","pass2","img2.com",new ArrayList<Post>()),"Kim","Mack", 3 )).collect(Collectors.toList()));
 		assertEquals(3, pServ.findPostByUser_id(user_id).size());
 	}
 	

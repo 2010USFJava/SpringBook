@@ -1,8 +1,9 @@
-import { Component, OnInit, Output, Inject, Input, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, Inject, EventEmitter } from '@angular/core';
 import { Users} from '../users';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { DOCUMENT } from '@angular/common';
+import { UsersService } from '../users.service';
 
 
 @Component({
@@ -11,12 +12,13 @@ import { DOCUMENT } from '@angular/common';
   styleUrls: ['./update-profile.component.css']
 })
 export class UpdateProfileComponent implements OnInit {
-
-  @Input() user: Users;
+  
+   user: Users;
   @Output() userChange = new EventEmitter<Users>();
 
-  constructor(private httpClient: HttpClient, @Inject(DOCUMENT) private _document: Document) {
-    this.user = new Users(); // Change to get current user
+  constructor(private httpClient: HttpClient, @Inject(DOCUMENT) private _document: Document,private userService: UsersService) {
+    this.user = userService.currentUser; // Change to get current user
+    console.log(this.user);
   }
 
   ngOnInit(): void {

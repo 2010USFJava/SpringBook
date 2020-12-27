@@ -8,6 +8,7 @@ import { catchError, map, tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class UsersService {
+   currentUser: Users;
   baseUrl = 'http://localhost:9090/myapp/springbook';
 
   constructor(private http: HttpClient) { }
@@ -17,7 +18,9 @@ export class UsersService {
   }
 
   public loginUserFormRemote(email:string, passWord:string): Observable<any> {
-    return this.http.post<any>(`${this.baseUrl}/login`,{email, passWord}, {withCredentials:true});
+    let result = this.http.post<any>(`${this.baseUrl}/login`,{email, passWord}, {withCredentials:true});
+    console.log(result);
+    return result;
   }
 
   public registerUsers(users: Object): Observable<Object>{

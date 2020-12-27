@@ -39,8 +39,8 @@ public class Post {
 	private String caption;
 	@Column(name="like_num")
 	private int like_num;
-	 @OneToMany(mappedBy = "postId", fetch = FetchType.EAGER, cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
-	private List<Like>likes;
+	// @OneToMany(mappedBy = "postId", fetch = FetchType.EAGER, cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
+	//private List<Like>likes;
 	
     
 
