@@ -31,7 +31,7 @@ export class PostService {
   }
 
   getPostsById(id:number):Observable<Post[]>{
-    return this._http.get<Post[]>(`${this.baseUrl}/getPostById`)
+    return this._http.get<Post[]>(`${this.baseUrl}/getPostById/${id}`)
       .pipe(tap(_=> this.log(`retrieved posts for id=${id}`)),
       catchError(this.handleError<Post[]>(`getPostsById id=${id}`)));
   }
