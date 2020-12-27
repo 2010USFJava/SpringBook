@@ -14,7 +14,7 @@ export class UsersService {
   constructor(private http: HttpClient) { }
 
   getUsersByFirstName(firstName: String): Observable<Users[]> {
-    return this.http.get<Users[]>(`${this.baseUrl}/${firstName}`);
+    return this.http.get<Users[]>(`${this.baseUrl}/firstname/${firstName}`);
   }
 
   public loginUserFormRemote(email:string, passWord:string): Observable<any> {
