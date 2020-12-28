@@ -135,6 +135,18 @@ public class MasterController {
 		return updatedUsers;
 	}
 	
+	@PostMapping("/resetpassword")
+	public Users resetPassword(@RequestBody Users users) {
+		Users updatedUsers = null;
+		if (users.getFirstName() != null && users.getLastName() != null) {
+			updatedUsers = uService.resetPassword(users);
+		}
+		if (updatedUsers == null) {
+			System.out.println("User does not exist.");
+		}
+		return updatedUsers;
+	}
+	
 	@PostMapping("/api/file/upload")
     public String uploadMultipartFile(@RequestParam("file") MultipartFile file) {
       String keyName = file.getOriginalFilename();
