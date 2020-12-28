@@ -10,6 +10,10 @@ body {
     margin-top: 0.97rem;
 }
 
+.card {
+    margin: 0 0 0 2%;
+}
+
 @media (min-width: 992px) {
     .gedf-main {
         padding-left: 4rem;

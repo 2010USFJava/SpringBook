@@ -1,5 +1,7 @@
 package com.revature.repos;
 import java.util.List;
+
+import org.springframework.data.jpa.repository.Query;
 //import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 //import org.springframework.data.repository.query.Param;
@@ -11,10 +13,10 @@ public interface UsersRepo extends CrudRepository<Users,Integer>{
 	
 
 	//public Users findByEmailAndPassword(String email, String passWord);
-	
-	public List<Users> findByFirstName(String firstName);
+	@Query(value = "SELECT * FROM users WHERE first_name=:firstName", nativeQuery = true)
+	public List<Users> findByFirst_name(String firstName);
 
-	//@Query(value = "SELECT * FROM users WHERE email =:email", nativeQuery = true)
+	@Query(value = "SELECT * FROM users WHERE email =:email", nativeQuery = true)
 	public Users findByEmail(String email);
 	
 	//public Users findByEmailAndPassWord(String email, String passWord);

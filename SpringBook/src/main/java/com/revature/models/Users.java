@@ -40,8 +40,7 @@ public class Users implements Serializable {
 	private String passWord;
 	@Column(name = "pro_image")
 	private String proImage;
-	@OneToMany(mappedBy = "users", fetch = FetchType.EAGER, cascade = { CascadeType.PERSIST, CascadeType.MERGE,
-			CascadeType.REFRESH })
+	@OneToMany(mappedBy = "users", fetch = FetchType.EAGER, cascade = { CascadeType.MERGE,CascadeType.REFRESH })
 	private List<Post> posts;
 
 }

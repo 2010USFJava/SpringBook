@@ -1,10 +1,13 @@
 <div *ngIf="users!=null; then thenBlock else elseBlock"></div>
 <ng-template #thenBlock>
   <div class="grid grid-pad">
-    <a *ngFor="let user of users" class="col-1-4"
-    router-Link="/profile/{{user}}">
-      <span class="badge">{{user.firstName}}</span> {{user.lastName}}
-  </a>
+    <ul>
+      <li *ngFor="let user of users" class="col-1-4">
+        <a router-Link="/profile/{{user}}" class="col-1-4">
+          {{user.firstName}} {{user.lastName}} <br>
+        </a> 
+     </li>
+    </ul>
   </div>
 </ng-template>
 <ng-template #elseBlock>User not found</ng-template>

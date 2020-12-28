@@ -38,7 +38,7 @@ public class UsersService {
 //	}
 
 	public List<Users> getUsersByFirstName(String firstName) {
-		return (List<Users>) uRepo.findByFirstName(firstName);
+		return (List<Users>)uRepo.findByFirst_name(firstName);
 	}
 
 	public Users updateProfile(Users users) {
