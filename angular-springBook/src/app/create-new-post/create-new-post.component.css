@@ -1,7 +1,3 @@
-body {
-    background-color: #eeeeee;
-}
-
 .h7 {
     font-size: 0.8rem;
 }
@@ -21,6 +17,8 @@ body {
     }
     .gedf-card {
         margin-bottom: 2.77rem;
+        border-color: #507DBC;
+        background-color: #DAE3E5;
     }
 }
 
@@ -28,4 +26,23 @@ body {
 .dropdown-toggle::after {
     content: none;
     display: none;
+}
+html,body{
+    background-color: #BBD1EA;
+    background-size: cover;
+      /* Set rules to fill background */
+    min-height: 100%;
+    min-width: 1024px;
+	
+    /* Set up proportionate scaling */
+    width: 100%;
+    height: auto;
+	
+    /* Set up positioning */
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+h2,h4,a{
+    color: #507DBC;
 }
