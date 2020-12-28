@@ -2,8 +2,8 @@ import { Users } from "./users";
 
 export class Post {
     users: Users;
-    caption: String;
-    image: String;
+    caption: string;
+    image_url: string;
     likes: number;
     constructor(){}
 }

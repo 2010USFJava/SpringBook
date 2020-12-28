@@ -9,12 +9,12 @@ export class UploadFileService {
 
   constructor(private http: HttpClient) { }
  
-  pushFileToStorage(file: File): Observable<HttpEvent<{}>> {
+  pushFileToStorage(file: File): Observable<any> {
     const formdata: FormData = new FormData();
  
     formdata.append('file', file);
  
-    const req = new HttpRequest('POST', 'http://localhost:8080/myapp/springbook/api/file/upload', formdata, {
+    const req = new HttpRequest('POST', 'http://localhost:9090/myapp/springbook/api/file/upload', formdata, {
       reportProgress: true,
       responseType: 'text'
     });
@@ -23,6 +23,6 @@ export class UploadFileService {
   }
  
   getFiles(): Observable<any> {
-    return this.http.get('http://localhost:8080/myapp/springbook/api/file/all');
+    return this.http.get('http://localhost:9090/myapp/springbook/api/file/all');
   }
 }
