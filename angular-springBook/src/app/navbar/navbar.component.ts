@@ -10,6 +10,7 @@ import { UsersService } from '../users.service';
 })
 export class NavbarComponent implements OnInit {
   user: Users;
+
   constructor(public router: Router, private userService: UsersService) {
 
     this.user = userService.currentUser;
@@ -17,13 +18,16 @@ export class NavbarComponent implements OnInit {
 
   }
 
+
   ngOnInit(): void {
   }
+
 
   LogOut() {
     this.user = null;
     this.router.navigate(['']);
     console.log(this.user);
+
   }
 
 }

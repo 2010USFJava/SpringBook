@@ -4,7 +4,7 @@
   <div class="grid grid-pad">
     <ul>
       <li *ngFor="let user of users" class="col-1-4">
-        <a router-Link="/profile/{{user}}" class="col-1-4">
+        <a (click)="searchUser(user)" class="col-1-4">
           {{user.firstName}} {{user.lastName}} <br>
         </a> 
      </li>

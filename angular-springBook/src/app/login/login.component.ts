@@ -18,9 +18,8 @@ export class LoginComponent implements OnInit {
  result : Users;
  msg='';  
 
-  constructor(private _service : UsersService, private _route: ActivatedRoute, private _router: Router) { 
-    
-  }
+  constructor(public _service : UsersService, private _route: ActivatedRoute, 
+    private _router: Router) {}
 
   ngOnInit(): void {
   }
@@ -32,6 +31,7 @@ export class LoginComponent implements OnInit {
      console.log(this.result);
      console.log("Response recived");
      this._service.currentUser= this.result;
+     console.log(this._service.currentUser);
      this._router.navigate(['/viewfeed']);
    },
 

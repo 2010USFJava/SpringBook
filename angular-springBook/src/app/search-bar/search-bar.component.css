@@ -1,3 +1,7 @@
+
+li {
+    list-style-type: none;
+}
 html{
     background-color: #BBD1EA;
     background-size: cover;

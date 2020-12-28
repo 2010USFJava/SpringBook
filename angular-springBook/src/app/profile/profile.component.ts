@@ -13,10 +13,13 @@ export class ProfileComponent implements OnInit {
   constructor(private userService: UsersService) { 
     this.user = this.userService.currentUser;
     console.log("trying to view profile");
+    //console.log(this.user);
+    console.log(this.userService.currentUser);
   }
 
   ngOnInit(): void {
-    
+
   }
+  
 
 }
