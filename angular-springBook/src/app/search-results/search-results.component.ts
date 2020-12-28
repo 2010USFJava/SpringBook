@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Users } from '../users';
+import { UsersService } from '../users.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-search-results',
@@ -8,9 +10,16 @@ import { Users } from '../users';
 })
 export class SearchResultsComponent implements OnInit {
   @Input() users : Users[];
-  constructor() { }
+  user: Users;
+  constructor(private userService: UsersService, public router: Router) { }
 
   ngOnInit(): void {
+
   }
 
+  searchUser(user: Users) {
+    this.userService.currentUser = user;
+    console.log(user);
+    this.router.navigateByUrl('/profile');
+  }
 }

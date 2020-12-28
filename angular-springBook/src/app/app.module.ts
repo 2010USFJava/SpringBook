@@ -40,7 +40,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     AppRoutingModule
   ],
 
-  providers: [],
+  providers: [LoginComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
