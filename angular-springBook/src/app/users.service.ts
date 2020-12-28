@@ -16,6 +16,10 @@ export class UsersService {
     private http: HttpClient,
     private messageService: MessageService) { }
 
+  getUserById(id: number): Observable<Users> {
+    return this.http.get<Users>(`${this.baseUrl}/user/${id}`);
+  }
+
   getUsersByFirstName(firstName: String): Observable<Users[]> {
     return this.http.get<Users[]>(`${this.baseUrl}/firstname/${firstName}`)
       .pipe(tap(_ => this.log('got users by first name')),

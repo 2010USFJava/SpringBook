@@ -24,13 +24,17 @@ export class PostService {
     catchError(this.handleError<Post>('newPost')));
   }
 
-  getAllPosts():Observable<Post[]>{
+  getAllPosts():Observable<any>{
+    // let postList = this._http.get<Post[]>(`${this.baseUrl}/getAllPosts`);
+    // postList.forEach
+
+    // console.log("in getAllPosts service:" + this._http.get<Post[]>(`${this.baseUrl}/getAllPosts`));
     return this._http.get<Post[]>(`${this.baseUrl}/getAllPosts`)
       .pipe(tap(_=> this.log('retrieved all posts')),
         catchError(this.handleError<Post[]>('getAllPosts', [])));
   }
 
-  getPostsById(id:number):Observable<Post[]>{
+  getPostsById(id:number):Observable<any>{
     return this._http.get<Post[]>(`${this.baseUrl}/getPostById/${id}`)
       .pipe(tap(_=> this.log(`retrieved posts for id=${id}`)),
       catchError(this.handleError<Post[]>(`getPostsById id=${id}`)));
