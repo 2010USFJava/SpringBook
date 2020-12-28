@@ -34,8 +34,39 @@ describe('UsersService', () => {
       expect(users).toEqual(dummyUsers);
     })
 
-    const request = httpMock.expectOne(`${service.baseUrl}/${firstName}`);
+    const request = httpMock.expectOne(`${service.baseUrl}/firstname/${firstName}`);
     expect(request.request.method).toBe('GET');
+    request.flush(dummyUsers);
+  });
+
+  it('should retrieve user after login', () => {
+    const email = 'Jon@mail.com';
+    const password = 'pass';
+    const dummyUsers: Users[] = [
+      { userId: 1, firstName: 'Jon', lastName: 'Smith', email: 'j@mail.com', passWord: 'pass', proImage: 'img.com'}
+    ];
+
+    service.loginUserFormRemote(email, password).subscribe(users => {
+      expect(users.length).toBe(1);
+      expect(users).toEqual(dummyUsers);
+    })
+
+    const request = httpMock.expectOne(`${service.baseUrl}/login`);
+    expect(request.request.method).toBe('POST');
+    request.flush(dummyUsers);
+  });
+
+  it('should retrieve user after register', () => {
+    const user: Users = { userId: 1, firstName: 'Jon', lastName: 'Smith', email: 'j@mail.com', passWord: 'pass', proImage: 'img.com'};
+    const dummyUsers: Users =
+      { userId: 1, firstName: 'Jon', lastName: 'Smith', email: 'j@mail.com', passWord: 'pass', proImage: 'img.com'};
+
+    service.registerUsers(user).subscribe(users => {
+      expect(users).toEqual(dummyUsers);
+    })
+
+    const request = httpMock.expectOne(`${service.baseUrl}/registeruser`);
+    expect(request.request.method).toBe('POST');
     request.flush(dummyUsers);
   });
 });
