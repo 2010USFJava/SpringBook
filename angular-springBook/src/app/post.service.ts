@@ -25,6 +25,10 @@ export class PostService {
   }
 
   getAllPosts():Observable<Post[]>{
+    // let postList = this._http.get<Post[]>(`${this.baseUrl}/getAllPosts`);
+    // postList.forEach
+
+    // console.log("in getAllPosts service:" + this._http.get<Post[]>(`${this.baseUrl}/getAllPosts`));
     return this._http.get<Post[]>(`${this.baseUrl}/getAllPosts`)
       .pipe(tap(_=> this.log('retrieved all posts')),
         catchError(this.handleError<Post[]>('getAllPosts', [])));

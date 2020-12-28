@@ -20,6 +20,7 @@ export class PostsListComponent implements OnInit {
   getPosts(): void {
     this.postService.getAllPosts().subscribe(posts => this.posts =  posts);
     console.log("try to view post");
+    this.postService.getAllPosts().subscribe(val => console.log(val));
   }
 
 }
