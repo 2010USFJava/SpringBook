@@ -36,7 +36,7 @@ public class Post implements Serializable{
     @JoinColumn(name = "user_id", referencedColumnName = "user_id", nullable = false)
     private Users users;
 	@Column(name="image_url")
-	private String imageUrl;
+	private String image_url;
 	@Column(name="caption")
 	private String caption;
 	@Column(name="like_num")

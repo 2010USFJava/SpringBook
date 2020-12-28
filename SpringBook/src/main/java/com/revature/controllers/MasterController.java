@@ -166,6 +166,7 @@ public class MasterController {
     public String uploadMultipartFile(@RequestParam("file") MultipartFile file) {
       String keyName = file.getOriginalFilename();
     s3Services.uploadFile(keyName, file);
-    return "Upload Successfully -> KeyName = " + keyName;
+    return "https://springbookbucket-sm.s3.us-east-2.amazonaws.com" + "/" + keyName;
+
     }
 }
