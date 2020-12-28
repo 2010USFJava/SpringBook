@@ -6,5 +6,6 @@ export class Post {
     image_url: string;
     caption: string;
     like_num: number;
+
     constructor(){}
 }

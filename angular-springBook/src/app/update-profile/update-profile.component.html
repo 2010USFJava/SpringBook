@@ -1,3 +1,4 @@
+<html>
 <app-navbar></app-navbar>
 <div class="container">
     <h2>Update Profile</h2>
@@ -34,8 +35,10 @@
                 {{progress.percentage}}%</div>
         </div>
     </div>
+
     <div *ngIf="user">
         <h2>User:</h2>
         <h3>Name: {{ user.firstName }} {{ user.lastName }}</h3>
         <h3>Email: {{ user.email }}</h3>
     </div>
+</html>
