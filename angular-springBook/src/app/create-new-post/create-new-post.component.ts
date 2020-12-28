@@ -73,7 +73,7 @@ export class CreateNewPostComponent implements OnInit {
 
   createNewPost() {
     this.submitted = true;
-    this.post.likes = 0;
+    this.post.like_num = 0;
     this.post.users = Object(this._service.currentUser);
     if (this.selectedimage != null) {
       this.upload();
