@@ -28,6 +28,9 @@ private PostsRepo pRepo;
 	@Transactional
 	public Post savePost(Post post) {//create a new post
 		System.out.println("in post service");
+		String test = post.getImage_url();
+		String set = test.substring(1, test.length()-1);
+		post.setImage_url(set);
 		return pRepo.save(post);
 	}
 	

@@ -16,6 +16,10 @@ export class UsersService {
     private http: HttpClient,
     private messageService: MessageService) { }
 
+  getUserById(id: number): Observable<Users> {
+    return this.http.get<Users>(`${this.baseUrl}/user/${id}`);
+  }
+
   getUsersByFirstName(firstName: String): Observable<Users[]> {
     return this.http.get<Users[]>(`${this.baseUrl}/firstname/${firstName}`)
       .pipe(tap(_ => this.log('got users by first name')),
@@ -51,6 +55,18 @@ export class UsersService {
   /* Log a postService message with the MessageService */
   private log(message: string) {
     this.messageService.add(`PostService: ${message}`);
+  }
+  
+  public updateProfile(users: Users): Observable<Object> {
+    console.log("Update Profile users = " + users);
+    //return this.http.post(`${this.baseUrl}/updateprofile`, users);
+    return this.http.post<Users>('http://localhost:9090/myapp/springbook/updateprofile', users);
+  }
+
+  public resetPassword(users: Users): Observable<Object> {
+    console.log("Reset Password users = " + users);
+    //return this.http.post(`${this.baseUrl}/resetpassword`, users);
+    return this.http.post<Users>('http://localhost:9090/myapp/springbook/updateprofile', users);
   }
 
 }
