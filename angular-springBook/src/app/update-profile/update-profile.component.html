@@ -3,13 +3,14 @@
 <div class="container">
     <h2>Update Profile</h2>
     <div>
-        <img id="profileImage" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+        <img id="profileImage"
+            src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
             (click)="this.getPictureFile()" />
         <br>
         <input type="file" id="pictureFile" class="hidden" (change)="updatePicture($event.target.files)">
         <button class="btn btn-success" [disabled]="!currentFileUpload" (click)="upload()">Upload</button>
     </div>
-    <div>
+    <div *ngIf="user">
         <label for="firtName">First Name:
             <input id="firstName" class="spaced-left" [(ngModel)]="user.firstName" />
         </label>
@@ -22,6 +23,10 @@
             <input id="email" class="spaced-left" [(ngModel)]="user.email" />
         </label>
         <br>
+        <label for="password">Password:
+            <input id="password" class="spaced-left" [(ngModel)]="user.passWord" />
+        </label>
+        <br>
         <input id="submitButton" class="btn btn-info" type="submit" value="Submit" (click)="onSubmit()" />
         <div *ngIf="currentFileUpload" class="progress">
             <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar"
@@ -31,8 +36,9 @@
         </div>
     </div>
 
-    <h2>User:</h2>
-    <h3>Name: {{ user.firstName }} {{ user.lastName }}</h3>
-    <h3>Email: {{ user.email }}</h3>
-</div>
+    <div *ngIf="user">
+        <h2>User:</h2>
+        <h3>Name: {{ user.firstName }} {{ user.lastName }}</h3>
+        <h3>Email: {{ user.email }}</h3>
+    </div>
 </html>
