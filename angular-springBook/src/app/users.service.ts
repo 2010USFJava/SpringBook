@@ -63,5 +63,6 @@ export class UsersService {
     console.log("Reset Password users = " + users);
     //return this.http.post(`${this.baseUrl}/resetpassword`, users);
     return this.http.post<Users>('http://localhost:9090/myapp/springbook/updateprofile', users);
+  }
 
 }
