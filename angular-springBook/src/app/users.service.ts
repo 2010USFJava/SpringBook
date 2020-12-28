@@ -56,5 +56,17 @@ export class UsersService {
   private log(message: string) {
     this.messageService.add(`PostService: ${message}`);
   }
+  
+  public updateProfile(users: Users): Observable<Object> {
+    console.log("Update Profile users = " + users);
+    //return this.http.post(`${this.baseUrl}/updateprofile`, users);
+    return this.http.post<Users>('http://localhost:9090/myapp/springbook/updateprofile', users);
+  }
+
+  public resetPassword(users: Users): Observable<Object> {
+    console.log("Reset Password users = " + users);
+    //return this.http.post(`${this.baseUrl}/resetpassword`, users);
+    return this.http.post<Users>('http://localhost:9090/myapp/springbook/updateprofile', users);
+  }
 
 }

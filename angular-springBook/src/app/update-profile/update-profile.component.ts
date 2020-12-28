@@ -16,12 +16,11 @@ export class UpdateProfileComponent implements OnInit {
   currentFileUpload: File;
   progress: { percentage: number } = { percentage: 0 };
   @Input() fileUpload: string;
-  user: Users;
+  @Input() user: Users;
   @Output() userChange = new EventEmitter<Users>();
 
   constructor(private httpClient: HttpClient, private userService: UsersService, private uploadService: UploadFileService) {
-    this.user = userService.currentUser; // Change to get current user
-    console.log(this.user);
+    this.user = this.userService.currentUser;
   }
 
   ngOnInit(): void {
@@ -29,11 +28,7 @@ export class UpdateProfileComponent implements OnInit {
 
 
   onSubmit(): void {
-    this.updateProfile();
-  }
-
-  updateProfile(): void {
-    this.httpClient.post<Users>('http://localhost:4200/myapp/springbook/updateprofile', this.user).subscribe(result => this.user = result);
+    this.httpClient.post<Users>('http://localhost:9090/myapp/springbook/updateprofile', this.user).subscribe(result => this.user = result);
   }
 
   getPictureFile(): void {
@@ -49,7 +44,7 @@ export class UpdateProfileComponent implements OnInit {
 
     this.currentFileUpload = this.currentFileUpload;
     //this.user.proImage = s3 address + this.currentFileUpload.name;
-    this.updateProfile();
+    this.userService.updateProfile(this.user);
     this.uploadService.pushFileToStorage(this.currentFileUpload).subscribe(event => {
       if (event.type === HttpEventType.UploadProgress) {
         this.progress.percentage = Math.round(100 * event.loaded / event.total);
