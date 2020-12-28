@@ -21,3 +21,22 @@ input[type=submit] {
 #profileImage {
     width: 15%;
 }
+html{
+    background-color: #BBD1EA;
+    background-size: cover;
+      /* Set rules to fill background */
+    min-height: 100%;
+    min-width: 1024px;
+	
+    /* Set up proportionate scaling */
+    width: 100%;
+    height: auto;
+	
+    /* Set up positioning */
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+h2{
+    color: #507DBC;
+}

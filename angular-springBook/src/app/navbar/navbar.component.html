@@ -1,7 +1,8 @@
 <div class="spaced-bottom">
-    <button routerLink="/viewfeed">Home</button>
-    <button routerLink="/profile">Profile</button>
-    <button routerLink="/updateprofile">Update profile</button>
-    <button routerLink="/newpost">New Post</button>
-    <button routerLink="/searchbar">Search</button>
+    <button routerLink="/viewfeed" class="navbutton">Home</button>
+    <button routerLink="/profile" class="navbutton">Profile</button>
+    <button routerLink="/updateprofile" class="navbutton">Update profile</button>
+    <button routerLink="/newpost" class="navbutton">New Post</button>
+    <button routerLink="/searchbar" class="navbutton">Search</button>
+    <button (click)="this.LogOut()" class="navbutton">Log Out</button>
 </div>

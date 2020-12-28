@@ -1,3 +1,16 @@
 .spaced-bottom {
     margin-bottom: 1em;
+    background-color: #507DBC;
+}
+
+.navbutton{
+    border-color: #040838;
+    color: #040838;
+    text-decoration-color: #040838;
+    background-color: #DAE3E5;
+    padding-left: 2%;
+    padding-right: 2%;
+    border-radius: 3px;
+    margin: 2px 2px;
+    
 }
