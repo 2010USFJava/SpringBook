@@ -46,11 +46,11 @@ To-do list:
 
 ## Contributors
 
-- Esrat
-- Chris
-- Aris
-- Michelle
-- Jennifer Heer.
+- Esrat Jahan
+- Christopher Osberg
+- Aris Carroll
+- Michelle Zhang
+- Jennifer Heermance
 
 ## License
 
